@@ -1,5 +1,4 @@
-function update() {
-    const now = new Date();
+function update(now) {
 
     const h = String(now.getHours()).padStart(2, "0");
     const m = String(now.getMinutes()).padStart(2, "0");
@@ -8,15 +7,23 @@ function update() {
     const Y = now.getFullYear();
     const M = String(now.getMonth() + 1);
     const D = String(now.getDate()).padStart(2, '0');
-    const W = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][now.getDay()];
 
     document.getElementById("clock").textContent = `${h}:${m}:${s}`;
     document.getElementById('date').textContent = `${Y}.${M}.${D}`;
 }
 
-function tick() {
-    update();
-    setTimeout(tick, 1000 - (Date.now() % 1000));
+function tick(lastSec) {
+    const now = new Date();
+    const currentSec = Math.floor(now.getTime() / 1000);
+
+    if (currentSec !== lastSec) {
+        update(now);
+        lastSec = currentSec;
+    }
+
+    requestAnimationFrame(() => tick(lastSec));
 }
 
-tick();
+document.addEventListener("DOMContentLoaded", () => {
+    tick(-1);
+});
