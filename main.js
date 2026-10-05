@@ -14,4 +14,9 @@ function update() {
     document.getElementById('date').textContent = `${Y}.${M}.${D}`;
 }
 
-setInterval("update()", 1000);
+function tick() {
+    update();
+    setTimeout(tick, 1000 - (Date.now() % 1000));
+}
+
+tick();
