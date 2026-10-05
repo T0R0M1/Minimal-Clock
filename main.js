@@ -25,5 +25,7 @@ function tick(lastSec) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    tick(-1);
+    const now = new Date();
+    update(now);
+    tick(Math.floor(now.getTime() / 1000));
 });
