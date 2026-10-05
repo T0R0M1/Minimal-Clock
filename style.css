@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "TRM-squareRound";
+    src: url("TRM-squareRound.woff2") format("woff2");
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 60px;
+    grid-template-areas:
+        "center"
+        "left";
+    align-content: center;
+    min-height: 100dvh;
+    overflow: hidden;
+}
+
+.left {
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "TRM-squareRound";
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: black;
+    font-size: 33pt;
+}
+
+.center {
+    grid-area: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "TRM-squareRound";
+
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: black;
+    font-size: 100pt;
+}
