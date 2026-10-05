@@ -12,20 +12,7 @@ function update(now) {
     document.getElementById('date').textContent = `${Y}.${M}.${D}`;
 }
 
-function tick(lastSec) {
-    const now = new Date();
-    const currentSec = Math.floor(now.getTime() / 1000);
-
-    if (currentSec !== lastSec) {
-        update(now);
-        lastSec = currentSec;
-    }
-
-    requestAnimationFrame(() => tick(lastSec));
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-    const now = new Date();
-    update(now);
-    tick(Math.floor(now.getTime() / 1000));
+    update(new Date());
+    setInterval(() => update(new Date()), 1000);
 });
