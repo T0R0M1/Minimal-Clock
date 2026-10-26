@@ -1,18 +1,14 @@
-function update(now) {
+function update() {
+    const now = new Date();
+    const pad = n => String(n).padStart(2, "0");
 
-    const h = String(now.getHours()).padStart(2, "0");
-    const m = String(now.getMinutes()).padStart(2, "0");
-    const s = String(now.getSeconds()).padStart(2, "0");
+    document.getElementById("clock").textContent =
+        `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
 
-    const Y = now.getFullYear();
-    const M = String(now.getMonth() + 1);
-    const D = String(now.getDate()).padStart(2, '0');
+    document.getElementById("date").textContent =
+        `${now.getFullYear()}.${now.getMonth() + 1}.${pad(now.getDate())}`;
 
-    document.getElementById("clock").textContent = `${h}:${m}:${s}`;
-    document.getElementById('date').textContent = `${Y}.${M}.${D}`;
+    setTimeout(update, 1000 - now.getMilliseconds());
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    update(new Date());
-    setInterval(() => update(new Date()), 1000);
-});
+document.addEventListener("DOMContentLoaded", update);

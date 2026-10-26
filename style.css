@@ -14,6 +14,7 @@ body {
     align-content: center;
     min-height: 100dvh;
     overflow: hidden;
+    background-color: #FAFAFA;
 }
 
 .left {
@@ -22,11 +23,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     font-family: "TRM-squareRound";
     font-weight: 500;
     font-variant-numeric: tabular-nums;
-    color: black;
+    color: #101010;
     font-size: 33pt;
 }
 
@@ -36,11 +36,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     font-family: "TRM-squareRound";
-
     font-weight: 500;
     font-variant-numeric: tabular-nums;
-    color: black;
+    color: #101010;
     font-size: 100pt;
 }
